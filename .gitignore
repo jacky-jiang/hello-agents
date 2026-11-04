@@ -11,3 +11,6 @@ wheels/
 
 # Environment variables
 .env
+
+# Logs
+test_re_act_log.txt
