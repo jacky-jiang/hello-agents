@@ -50,10 +50,8 @@ class ReActAgent:
         print("No response from LLM.")
         break
 
-      print(f"LLM Response: {response_text}")
-      thought, action = self._parse_output(response_text)
-      if thought:
-        print(f"Thought: {thought}")
+      _, action = self._parse_output(response_text)
+      
       if not action:
         print("警告：未找到有效的行动，流程终止。")
         break
@@ -65,7 +63,7 @@ class ReActAgent:
       if not tool_name or not tool_input:
         self.history.append("Observation:无效的Action格式，请检查");continue
 
-      print(f"行动: {tool_name} 输入: {tool_input}")
+      print(f"执行行动: {tool_name} 输入: {tool_input}")
       tool_function = self.tools_manager.get_tool(tool_name)
       observation = tool_function(tool_input) if tool_function else f"工具 {tool_name} 未找到"
 

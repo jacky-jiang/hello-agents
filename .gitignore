@@ -14,3 +14,4 @@ wheels/
 
 # Logs
 test_re_act_log.txt
+test_re_act_log_*.txt
